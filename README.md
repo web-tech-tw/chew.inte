@@ -2,7 +2,7 @@
 
 TeaCat like, a microblog social platform.
 
-> Vue.js 2 + Express.js = Mystery
+> Nuxt.js Static + Express.js = Mystery
 
 ## License
 
