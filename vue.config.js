@@ -3,7 +3,7 @@ const {defineConfig} = require('@vue/cli-service')
 module.exports = defineConfig({
     pages: {
         index: {
-            title: 'template.inte',
+            title: 'Chew 口香糖',
             entry: 'src/main.js',
             template: 'public/index.html',
             filename: 'index.html',
