@@ -1,6 +1,6 @@
-# template.inte
+# chew.inte
 
-前端 Web 通用模板
+文字片段分享平台
 
 ## 專案設定
 
