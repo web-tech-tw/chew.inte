@@ -38,6 +38,7 @@
                 hover:bg-violet-200
                 md:py-4 md:text-lg md:px-10
               "
+              @click="goWriter"
             >
               開始打字
             </button>
@@ -74,7 +75,7 @@
           <div class="rounded-md shadow mr-1">
             <input
               class="
-                shw-full
+                w-full
                 flex
                 items-center
                 justify-center
@@ -84,13 +85,17 @@
                 text-base
                 font-medium
                 rounded-md
-                text-white
+                text-black
                 bg-white
                 hover:bg-gray-100
+                my-2
+                sm:my-0
                 md:py-4 md:text-lg md:px-10
               "
               type="text"
               placeholder="0code-xxxx"
+              v-model="code"
+              @keydown.enter="goReader"
             />
           </div>
           <div class="rounded-md shadow">
@@ -111,6 +116,7 @@
                 hover:bg-violet-700
                 md:py-4 md:text-lg md:px-10
               "
+              @click="goReader"
             >
               查詢
             </button>
@@ -124,5 +130,21 @@
 <script>
 export default {
   name: "HomeView",
+  data: () => ({
+    code: "",
+  }),
+  methods: {
+    goWriter() {
+      this.$router.push("/writer");
+    },
+    goReader() {
+      if (!this.code) {
+        return;
+      }
+      this.$router.push(
+        `/reader/${this.code}`
+      );
+    },
+  },
 };
 </script>

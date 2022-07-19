@@ -15,6 +15,17 @@ const routes = [
     component: () => import('@/views/ProfileView.vue'),
   },
   {
+    path: '/writer',
+    name: 'writer',
+    component: () => import('@/views/WriterView.vue'),
+  },
+  {
+    path: '/reader/:code',
+    name: 'reader',
+    component: () => import('@/views/ReaderView.vue'),
+    props: true,
+  },
+  {
     path: '*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),

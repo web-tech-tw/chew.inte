@@ -9,9 +9,8 @@ import axios from "axios";
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const config = {
-    // baseURL: process.env.baseURL || process.env.apiUrl || "", // BaseURL
-    // timeout: 60 * 1000, // Timeout
-    // withCredentials: true, // Check cross-site Access-Control
+    baseURL: process.env.VUE_APP_RECV_HOST || "", // BaseURL
+    timeout: 60 * 1000, // Timeout
 };
 
 const _axios = axios.create(config);
