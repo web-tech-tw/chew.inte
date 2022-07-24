@@ -17,8 +17,11 @@
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900">
           <span class="block xl:inline">想要</span>
           <span class="block text-violet-600 xl:inline">分享文字片段</span>
+          <span class="block xl:inline">卻找不到地方貼貼剪剪嗎？</span>
         </h1>
-        <p class="mt-3 text-base text-gray-500">卻找不到地方貼貼剪剪嗎？</p>
+        <p class="mt-3 text-base text-gray-500">
+          我們提供一個簡單好用的地方，讓你可以在這裡打打字，並分享給朋友
+        </p>
         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
           <div class="mt-3 sm:mt-0 sm:ml-3">
             <button
@@ -141,9 +144,7 @@ export default {
       if (!this.code) {
         return;
       }
-      this.$router.push(
-        `/reader/${this.code}`
-      );
+      this.$router.push(`/reader/${this.code}`);
     },
   },
 };
