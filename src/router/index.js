@@ -6,13 +6,24 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/views/HomeView.vue'),
-  },
-  {
-    path: '/profile',
-    name: 'profile',
-    component: () => import('@/views/ProfileView.vue'),
+    component: () => import('@/layouts/DefaultLayout/Index.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/HomeView.vue'),
+      },
+      {
+        path: '/profile',
+        name: 'profile',
+        component: () => import('@/views/ProfileView.vue'),
+      },
+      {
+        path: '*',
+        name: 'not-found',
+        component: () => import('@/views/NotFoundView.vue'),
+      },
+    ],
   },
   {
     path: '/writer',
@@ -24,11 +35,6 @@ const routes = [
     name: 'reader',
     component: () => import('@/views/ReaderView.vue'),
     props: true,
-  },
-  {
-    path: '*',
-    name: 'not-found',
-    component: () => import('@/views/NotFoundView.vue'),
   }
 ];
 
