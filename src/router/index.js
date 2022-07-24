@@ -18,11 +18,6 @@ const routes = [
         name: 'profile',
         component: () => import('@/views/ProfileView.vue'),
       },
-      {
-        path: '*',
-        name: 'not-found',
-        component: () => import('@/views/NotFoundView.vue'),
-      },
     ],
   },
   {
@@ -35,7 +30,12 @@ const routes = [
     name: 'reader',
     component: () => import('@/views/ReaderView.vue'),
     props: true,
-  }
+  },
+  {
+    path: '*',
+    name: 'not-found',
+    component: () => import('@/views/NotFoundView.vue'),
+  },
 ];
 
 const router = new VueRouter({
