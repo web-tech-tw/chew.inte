@@ -168,13 +168,12 @@ export default {
       return this.gum.doc_type !== "plaintext";
     },
     gumTimes() {
+      const humanReadableFormater = (time) => {
+        return dayjs(time).format("YYYY-MM-DD HH:mm:ss");
+      };
       return {
-        created_at: dayjs(this.gum.created_at * 1000).format(
-          "YYYY-MM-DD HH:mm:ss"
-        ),
-        updated_at: dayjs(this.gum.updated_at * 1000).format(
-          "YYYY-MM-DD HH:mm:ss"
-        ),
+        created_at: humanReadableFormater(this.gum.created_at),
+        updated_at: humanReadableFormater(this.gum.updated_at),
       };
     },
   },
