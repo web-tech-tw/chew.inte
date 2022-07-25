@@ -11,7 +11,7 @@ import AppHeader from "./Header"
 import AppFooter from "./Footer"
 
 export default {
-  name: 'App',
+  name: 'LayoutIndex',
   components: {AppHeader, AppFooter},
 }
 </script>

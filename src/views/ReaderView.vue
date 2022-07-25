@@ -69,9 +69,11 @@ export default {
     content() {
       return this.gum.content || "";
     },
+    codeMode() {
+      return this.gum.doc_type !== "plaintext";
+    }
   },
   data: () => ({
-    codeMode: true,
     gum: {},
   }),
   methods: {

@@ -21,15 +21,32 @@ const routes = [
     ],
   },
   {
-    path: '/writer',
-    name: 'writer',
-    component: () => import('@/views/WriterView.vue'),
+    path: '/w',
+    component: () => import('@/layouts/DefaultLayout/Index.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'writer',
+        component: () => import('@/views/WriterView.vue'),
+      },
+      {
+        path: 'code',
+        name: 'code-writer',
+        component: () => import('@/views/CodeWriterView.vue'),
+      }
+    ]
   },
   {
-    path: '/reader/:code',
-    name: 'reader',
-    component: () => import('@/views/ReaderView.vue'),
-    props: true,
+    path: '/r',
+    component: () => import('@/layouts/DefaultLayout/Index.vue'),
+    children: [
+      {
+        path: ':code',
+        name: 'reader',
+        component: () => import('@/views/ReaderView.vue'),
+        props: true,
+      },
+    ]
   },
   {
     path: '*',

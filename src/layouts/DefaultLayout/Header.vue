@@ -410,7 +410,7 @@
 const loginUrl = `${process.env.VUE_APP_SARA_INTE_HOST}/?refer=${window.location.href}`;
 
 export default {
-  name: "AppHeader",
+  name: "LayoutHeader",
   data: () => ({
     title: {
       short: "Chew",

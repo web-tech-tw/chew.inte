@@ -138,13 +138,13 @@ export default {
   }),
   methods: {
     goWriter() {
-      this.$router.push("/writer");
+      this.$router.push("/w");
     },
     goReader() {
       if (!this.code) {
         return;
       }
-      this.$router.push(`/reader/${this.code}`);
+      this.$router.push(`/r/${this.code}`);
     },
   },
 };
