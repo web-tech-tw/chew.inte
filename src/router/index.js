@@ -21,7 +21,7 @@ const routes = [
     ],
   },
   {
-    path: '/w',
+    path: '/writer',
     component: () => import('@/layouts/DefaultLayout/Index.vue'),
     children: [
       {
@@ -29,12 +29,12 @@ const routes = [
         name: 'writer',
         component: () => import('@/views/WriterView.vue'),
       },
-      {
-        path: 'code',
-        name: 'code-writer',
-        component: () => import('@/views/CodeWriterView.vue'),
-      }
     ]
+  },
+  {
+    path: '/coder',
+    name: 'code-writer',
+    component: () => import('@/views/CoderView.vue'),
   },
   {
     path: '/r',

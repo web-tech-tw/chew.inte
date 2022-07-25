@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto my-5 p-5">
+  <div>
     <div v-if="!result">
       <prism-editor
         class="code-editor"
@@ -7,28 +7,29 @@
         :highlight="highlighter"
         line-numbers
       ></prism-editor>
-      <button
-        class="
-          w-full
-          mt-3
-          flex
-          items-center
-          justify-center
-          px-8
-          py-3
-          border border-transparent
-          text-base
-          font-medium
-          rounded-md
-          text-violet-700
-          bg-violet-100
-          hover:bg-violet-200
-          md:py-4 md:text-lg md:px-10
-        "
-        @click="handleSubmit"
-      >
-        我打完了
-      </button>
+      <div class="operations">
+        <button
+          class="
+            mt-3
+            flex
+            items-center
+            justify-center
+            px-8
+            py-3
+            border border-transparent
+            text-base
+            font-medium
+            rounded-md
+            text-violet-700
+            bg-violet-100
+            hover:bg-violet-200
+            md:py-4 md:text-lg md:px-10
+          "
+          @click="handleSubmit"
+        >
+          我打完了
+        </button>
+      </div>
     </div>
     <div v-else>
       <div class="w-64 mx-auto">
@@ -63,7 +64,7 @@ import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism-tomorrow.css"; // import syntax highlighting styles
 
 export default {
-  name: "WriterView",
+  name: "CoderView",
   components: {
     PrismEditor,
   },
@@ -89,7 +90,11 @@ export default {
 <style>
 /* required class */
 .code-editor {
-  min-height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   /* we dont use `language-` classes anymore so thats why we need to add background and text color manually */
   background: #2d2d2d;
@@ -105,5 +110,12 @@ export default {
 /* optional class for removing the outline */
 .prism-editor__textarea:focus {
   outline: none;
+}
+
+.operations {
+  min-width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0; 
 }
 </style>

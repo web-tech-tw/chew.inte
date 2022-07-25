@@ -138,7 +138,7 @@ export default {
   }),
   methods: {
     goWriter() {
-      this.$router.push("/w");
+      this.$router.push("/writer");
     },
     goReader() {
       if (!this.code) {
