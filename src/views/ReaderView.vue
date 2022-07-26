@@ -1,6 +1,28 @@
 <template>
   <div>
-    <div v-if="!isNotFound">
+    <div v-if="!isLoaded">
+        <svg
+          class="animate-spin mx-auto my-10 h-5 w-5 text-violet-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+    </div>
+    <div v-else-if="!isNotFound">
       <div class="container mx-auto my-5 p-5">
         <div class="mx-auto max-w-sm rounded overflow-hidden shadow-lg">
           <div class="px-6 py-4">
@@ -179,6 +201,7 @@ export default {
   },
   data: () => ({
     gum: {},
+    isLoaded: false,
     isNotFound: false,
   }),
   methods: {
@@ -206,6 +229,9 @@ export default {
       .catch((error) => {
         console.log(error);
         this.isNotFound = true;
+      })
+      .finally(() => {
+        this.isLoaded = true;
       });
   },
   mounted() {

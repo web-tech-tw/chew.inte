@@ -1,53 +1,54 @@
 <template>
   <div>
-    <div v-if="!result">
-      <prism-editor
-        class="code-editor"
-        v-model="content"
-        :highlight="highlighter"
-        line-numbers
-      ></prism-editor>
-      <div class="operations">
-        <button
-          class="
-            mt-3
-            flex
-            items-center
-            justify-center
-            px-8
-            py-3
-            border border-transparent
-            text-base
-            font-medium
-            rounded-md
-            text-violet-700
-            bg-violet-100
-            hover:bg-violet-200
-            md:py-4 md:text-lg md:px-10
-          "
-          @click="handleSubmit"
-        >
-          我打完了
-        </button>
-      </div>
-    </div>
-    <div v-else>
-      <div class="w-64 mx-auto">
-        <h4 class="font-semibold text-slate-900">片段代碼：</h4>
-        <span
-          class="
-            rounded-full
-            bg-slate-100
-            px-2
-            py-1
-            text-xs
-            font-semibold
-            text-slate-700
-          "
-        >
-          {{ result._id }}
-        </span>
-      </div>
+    <prism-editor
+      class="code-editor"
+      v-model="content"
+      :highlight="highlighter"
+      line-numbers
+    ></prism-editor>
+    <div class="operations">
+      <button
+        class="
+          mt-3
+          flex
+          items-center
+          justify-center
+          px-8
+          py-3
+          border border-transparent
+          text-base
+          font-medium
+          rounded-md
+          text-violet-100
+          bg-violet-700
+          hover:bg-violet-600
+          md:py-4 md:text-lg md:px-10
+        "
+        @click="handleSubmit"
+      >
+        我打完了
+      </button>
+      <button
+        class="
+          mt-3
+          flex
+          items-center
+          justify-center
+          px-8
+          py-3
+          border border-transparent
+          text-base
+          font-medium
+          rounded-md
+          text-violet-700
+          bg-violet-100
+          hover:bg-violet-200
+          md:py-4 md:text-lg md:px-10
+        "
+        @click="goWriter"
+      >
+        一般模式
+      </button>
     </div>
   </div>
 </template>
@@ -70,18 +71,25 @@ export default {
   },
   data: () => ({
     content: "",
-    result: "",
   }),
   methods: {
     highlighter(code) {
       return highlight(code, languages.js); // languages.<insert language> to return html with markup
+    },
+    goWriter() {
+      this.$router.push("/writer");
     },
     async handleSubmit() {
       const form = new URLSearchParams();
       form.set("content", this.content);
       form.set("doc_type", "javascript");
       const xhr = await this.$axios.post("/anonymous", form);
-      this.result = xhr.data;
+      this.$router.push({
+        name: "code",
+        params: {
+          result: xhr.data,
+        },
+      });
     },
   },
 };
@@ -116,6 +124,6 @@ export default {
   min-width: 100px;
   position: absolute;
   top: 0;
-  right: 0; 
+  right: 0;
 }
 </style>

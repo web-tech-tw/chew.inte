@@ -14,20 +14,20 @@ const routes = [
         component: () => import('@/views/HomeView.vue'),
       },
       {
-        path: '/profile',
+        path: 'profile',
         name: 'profile',
         component: () => import('@/views/ProfileView.vue'),
       },
-    ],
-  },
-  {
-    path: '/writer',
-    component: () => import('@/layouts/DefaultLayout/Index.vue'),
-    children: [
       {
-        path: '/',
+        path: 'writer',
         name: 'writer',
         component: () => import('@/views/WriterView.vue'),
+      },
+      {
+        path: 'code',
+        name: 'code',
+        component: () => import('@/views/CodeView.vue'),
+        props: true,
       },
     ]
   },
