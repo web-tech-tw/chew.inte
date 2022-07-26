@@ -169,7 +169,7 @@ export default {
     },
     gumTimes() {
       const humanReadableFormater = (time) => {
-        return dayjs(time).format("YYYY-MM-DD HH:mm:ss");
+        return dayjs(time * 1000).format("YYYY-MM-DD HH:mm:ss");
       };
       return {
         created_at: humanReadableFormater(this.gum.created_at),
