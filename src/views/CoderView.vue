@@ -6,23 +6,21 @@
       :highlight="highlighter"
       line-numbers
     ></prism-editor>
-    <div class="operations">
+    <div class="operations w-32 bg-gray-500 h-full">
       <button
         class="
-          mt-3
+          w-full
           flex
           items-center
           justify-center
-          px-8
-          py-3
+          px-2
+          py-2
           border border-transparent
           text-base
           font-medium
-          rounded-md
-          text-violet-100
-          bg-violet-700
-          hover:bg-violet-600
-          md:py-4 md:text-lg md:px-10
+          text-gray-100
+          bg-gray-700
+          hover:bg-gray-600
         "
         @click="handleSubmit"
       >
@@ -30,20 +28,18 @@
       </button>
       <button
         class="
-          mt-3
+          w-full
           flex
           items-center
           justify-center
-          px-8
-          py-3
+          px-2
+          py-2
           border border-transparent
           text-base
           font-medium
-          rounded-md
-          text-violet-700
-          bg-violet-100
-          hover:bg-violet-200
-          md:py-4 md:text-lg md:px-10
+          text-gray-700
+          bg-gray-100
+          hover:bg-gray-200
         "
         @click="goWriter"
       >
