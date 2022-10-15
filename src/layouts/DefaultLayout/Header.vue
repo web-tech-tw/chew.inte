@@ -407,7 +407,7 @@
 </template>
 
 <script>
-const loginUrl = `${process.env.VUE_APP_SARA_INTE_HOST}/?refer=${window.location.href}`;
+const loginUrl = `${process.env.VUE_APP_SARA_INTE_HOST}/?refer=${process.env.VUE_APP_INTE_HOST}`;
 
 export default {
   name: "LayoutHeader",
